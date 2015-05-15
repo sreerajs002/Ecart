@@ -1,0 +1,28 @@
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field form-group">
+
+  <div class="field">
+    <%= f.label :Address %><br>
+    <%= f.text_area :address , class:'form-control'%>
+  </div> 
+  <div class="field">
+  <%=f.label:products%><br>
+
+  <%= select_tag "cate", options_from_collection_for_select(Product.all, 'id', 'prname',@order.products.map{ |j| j.id }), :multiple => true, class:'form-control'%>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit class:'btn btn-block btn-info'%>
+  </div>
+ 

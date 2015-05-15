@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Products:</strong>
+  <table >
+  	<tbody>
+  	<% @order.products.each do |product| %>
+  		<tr>
+  			<td><%= product.prname %></td>
+  		</tr>
+  	<%end%>
+  	</tbody>
+  </table> 
+ 
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @order.address %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) , class:'btn btn-info col-xs-offset-1 col-xs-4' %>
+<%= link_to 'Back', orders_path , class:'btn btn-info col-xs-offset-1 col-xs-4' %>
+ 
